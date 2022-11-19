@@ -1,5 +1,6 @@
 import {BrowserRouter , Routes , Route} from "react-router-dom"
-import Menu from "../components/Menu"
+import NavbarMenu from "../components/NavbarMenu"
+
 
 import { About } from "../pages/About"
 import { Dashboard } from "../pages/Dashboard"
@@ -15,7 +16,7 @@ export const AppRouter = () => {
   return (
     <div>
         <BrowserRouter>
-        <Menu/>
+        <NavbarMenu/>
         <Routes>
             <Route path="/"  element={<Dashboard/>}  />
 
