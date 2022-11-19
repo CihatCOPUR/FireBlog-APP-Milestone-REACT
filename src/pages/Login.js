@@ -4,8 +4,8 @@ import { signInWithPopup, signOut } from "firebase/auth";
 import { useNavigate } from "react-router";
 
 
-export const Login = (setIsAuth) => {
-  const {setIsAuth}=setIsAuth;
+export const Login = (props) => {
+  const {setIsAuth}=props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 let navigate =useNavigate();

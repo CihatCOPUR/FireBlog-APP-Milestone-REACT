@@ -43,7 +43,7 @@ export const AppRouter = () => {
 
                 </Route>         
                   
-            <Route path="login"  element={<Login setIsAuth={setIsAuth} />}  />
+            <Route path="login"  element={<Login setIsAuth={setIsAuth()} />}  />
             
             <Route path="register"  element={<Register/>}  />
             
