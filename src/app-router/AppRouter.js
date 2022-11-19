@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {BrowserRouter , Routes , Route} from "react-router-dom"
 import NavbarMenu from "../components/NavbarMenu"
 
@@ -13,6 +14,10 @@ import { UpDateBlog } from "../pages/UpDateBlog"
 import { PrivateRouter } from "./PrivateRouter"
 
 export const AppRouter = () => {
+
+  const [isAuth,setIsAuth] = useState(false)
+
+
   return (
     <div>
         <BrowserRouter>
@@ -38,7 +43,7 @@ export const AppRouter = () => {
 
                 </Route>         
                   
-            <Route path="login"  element={<Login/>}  />
+            <Route path="login"  element={<Login setIsAuth={setIsAuth} />}  />
             
             <Route path="register"  element={<Register/>}  />
             
