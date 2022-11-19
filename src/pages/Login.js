@@ -26,7 +26,7 @@ const logout = () => {
       setIsAuth(true)
       
     })
-    navigate("/");
+    
   };
   return (
     <div>
