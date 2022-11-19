@@ -4,8 +4,8 @@ import { signInWithPopup, signOut } from "firebase/auth";
 import { useNavigate } from "react-router";
 
 
-export const Login = (props) => {
-  const {setIsAuth}=props;
+export const Login = ({setIsAuth}) => {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 let navigate =useNavigate();
@@ -16,15 +16,17 @@ let navigate =useNavigate();
 const logout = () => {
   signOut(auth).then(()=>{
     setIsAuth(false);
-    navigate("/")
+    
   })
+  navigate("/")
 }
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then(() => {
     
-      setIsAuth(true);
-      navigate("/");
-    });
+      setIsAuth(true)
+      
+    })
+    navigate("/");
   };
   return (
     <div>
