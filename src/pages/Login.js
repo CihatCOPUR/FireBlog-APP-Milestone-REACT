@@ -1,22 +1,29 @@
 import { useState } from "react";
 import { auth, provider } from "../helpers/firebase";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
+import { useNavigate } from "react-router";
 
 
-
-export const Login = ({setIsAuth}) => {
+export const Login = (setIsAuth) => {
+  const {setIsAuth}=setIsAuth;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+let navigate =useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email.password); // undifened geliyor ?????????????????
   };
-
+const logout = () => {
+  signOut(auth).then(()=>{
+    setIsAuth(false);
+    navigate("/")
+  })
+}
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then(() => {
     
       setIsAuth(true);
+      navigate("/");
     });
   };
   return (
@@ -40,6 +47,7 @@ export const Login = ({setIsAuth}) => {
         <button type="submit">Login</button> <br />
       </form>
       <button onClick={signInWithGoogle}>Enter with Google</button>
+      <button onClick={logout}>Logout</button>
     </div>
   );
 };
