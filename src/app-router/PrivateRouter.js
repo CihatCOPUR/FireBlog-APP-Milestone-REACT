@@ -1,13 +1,13 @@
 import { useState } from "react"
-import { Outlet } from "react-router"
-import { Login } from "../pages/Login"
+import { Navigate, Outlet } from "react-router"
+
 
 
 export const PrivateRouter = () => {
     const [user, setUser] = useState(false)
   return (
     <div>
-    {user ? <Outlet/> : <Login/>}
+    {user ? <Outlet/> : <Navigate  to="/login"/>}
     </div>
   )
 }
