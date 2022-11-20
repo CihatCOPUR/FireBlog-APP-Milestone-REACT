@@ -15,6 +15,7 @@ const handleSubmit = (e) => {
   e.preventDefault();
   try {
     signInWithEmailAndPassword(auth,email,password).then(()=>console.log(auth))
+    setIsAuth(true);
     navigate("/")
   } catch (error) {
     console.log(error.message)
@@ -26,6 +27,7 @@ const handleSubmit = (e) => {
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then(() => {
       setIsAuth(true);
+      navigate("/")
     });
   };
   return (
